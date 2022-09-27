@@ -49,7 +49,9 @@ router.post("/signIn", async (req, res) => {
   if (!checkPass) {
     return res.status(409).json({ msg: "Sorry, your password is incorrect" });
   }
-  return res.status(200).json(user);
+
+  const {password:pass, info} = user
+  return res.status(200).json(info);
 });
 
 module.exports = router;
